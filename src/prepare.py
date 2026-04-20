@@ -49,4 +49,4 @@ def prepare_data(input_path):
     print(f"Prepared {len(dev_set)} training rows and {len(test_set)} locked test rows.")
 
 if __name__ == "__main__":
-    prepare_data('data/raw/congress-trading-all.csv')
+    prepare_data('data/congress-trading-all.csv')

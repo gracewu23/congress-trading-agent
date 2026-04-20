@@ -30,16 +30,16 @@ def prepare_data(input_path):
     df = df.rename(columns=column_mapping)
     
     # dates
-    df['disclosure_date'] = pd.to_datetime(df['disclosure_date'])
-    df['transaction_date'] = pd.to_datetime(df['transaction_date'])
+    df['filed'] = pd.to_datetime(df['filed'])
+    df['traded'] = pd.to_datetime(df['traded'])
     
     # create lag
-    df['reporting_lag'] = (df['disclosure_date'] - df['transaction_date']).dt.days
+    df['reporting_lag'] = (df['filed'] - df['traded']).dt.days
     
     # split dataset
     # dev: 2020-2024 | locked test: 2025-2026
-    dev_set = df[df['disclosure_date'] < '2025-01-01']
-    test_set = df[df['disclosure_date'] >= '2025-01-01']
+    dev_set = df[df['filed'] < '2025-01-01']
+    test_set = df[df['filed'] >= '2025-01-01']
     
     # save files
     os.makedirs('data/processed', exist_ok=True)

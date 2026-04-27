@@ -1,0 +1,7 @@
+experiment	alpha	sharpe	status	description
+exp	0.023892	3.071734	baseline	Baseline: RandomForest
+exp	0.024319	1.723570	keep	GradientBoosting default
+exp	0.024662	1.783945	keep	GBR: n=200, lr=0.05
+exp	0.023882	1.010763	keep	HistGBR + Poly
+exp	0.024662	1.783945	keep	GBR + RobustScaler
+exp	0.023496	1.034850	keep	GBR: max_depth=5

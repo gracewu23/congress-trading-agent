@@ -9,5 +9,5 @@ def build_model():
     """
     return Pipeline([
         ("scaler", StandardScaler()),
-        ("model", GradientBoostingRegressor(random_state=42))
+        ("model", GradientBoostingRegressor(n_estimators=200, learning_rate=0.05, random_state=42))
     ])

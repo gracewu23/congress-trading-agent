@@ -1,19 +1,13 @@
-"""
-EDITABLE -- The agent modifies this file.
-Define the model pipeline for California Housing regression.
-The function build_model() must return an sklearn-compatible estimator.
-"""
-from sklearn.ensemble import HistGradientBoostingRegressor
+from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import QuantileTransformer
-
+from sklearn.preprocessing import StandardScaler
 
 def build_model():
-    """Return an sklearn Pipeline. This is what the agent improves."""
+    """
+    AI Agent: Modify this pipeline to improve Alpha.
+    Try GradientBoosting, different depths, or feature engineering.
+    """
     return Pipeline([
-        ("scaler", QuantileTransformer(output_distribution='normal', random_state=42)),
-        ("model", HistGradientBoostingRegressor(
-            max_iter=500, max_depth=8, learning_rate=0.08,
-            min_samples_leaf=20, random_state=42,
-        )),
+        ("scaler", StandardScaler()),
+        ("model", GradientBoostingRegressor(random_state=42))
     ])

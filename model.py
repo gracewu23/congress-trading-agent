@@ -9,5 +9,5 @@ def build_model():
     """
     return Pipeline([
         ("scaler", StandardScaler()),
-        ("model", ExtraTreesRegressor(n_estimators=1000, max_depth=1, min_samples_leaf=60, random_state=42, n_jobs=-1))
+        ("model", ExtraTreesRegressor(n_estimators=1200, max_depth=1, min_samples_leaf=80, random_state=42, n_jobs=-1))
     ])

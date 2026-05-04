@@ -1,4 +1,4 @@
-from sklearn.ensemble import RandomForestRegressor
+from sklearn.ensemble import ExtraTreesRegressor
 from sklearn.pipeline import Pipeline
 
 def build_model():
@@ -7,8 +7,8 @@ def build_model():
     Try GradientBoosting, different depths, or feature engineering.
     """
     return Pipeline([
-        ("model", RandomForestRegressor(
-            n_estimators=400,
+        ("model", ExtraTreesRegressor(
+            n_estimators=600,
             max_depth=2,
             min_samples_leaf=100,
             random_state=42,

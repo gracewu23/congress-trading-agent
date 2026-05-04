@@ -32,7 +32,7 @@ I have initialized an AutoResearch project for Congressional trade analysis.
 
 1. Read program.md to understand the financial objectives and constraints.
 2. Read model.py to see the current model architecture.
-3. Establish the baseline: Run `python run.py "Baseline: GradientBoosting" --baseline`. Note the Alpha and Sharpe Ratio.
+3. Establish the baseline: Run `python run.py "Baseline: Ridge Regression" --baseline`. Note the Alpha and Sharpe Ratio.
 
 Now, enter the AutoResearch loop for at least 6 iterations:
 

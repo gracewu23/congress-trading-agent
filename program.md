@@ -8,7 +8,7 @@ Maximize **Alpha** (outperformance vs. S&P 500) using Congressional trade data.
 2. Sharpe Ratio > 1.0.
 
 ## Rules
-- You may ONLY modify `model.py` and `results.tsv`
+- You may ONLY modify `model.py`, `results.tsv`, and `performance.png`
 - `prepare.py` and `run.py` are FROZEN — do not touch them
 - After completing the iterations, update `results.tsv` and `performance.png` with the results
 - Do not use future data; the `target_alpha` is calculated using disclosure-date entry

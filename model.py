@@ -1,4 +1,4 @@
-from sklearn.linear_model import BayesianRidge
+from sklearn.linear_model import Lasso
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 
@@ -9,5 +9,5 @@ def build_model():
     """
     return Pipeline([
         ("scaler", StandardScaler()),
-        ("model", BayesianRidge())
+        ("model", Lasso(alpha=0.001, max_iter=10000))
     ])

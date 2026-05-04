@@ -1,4 +1,4 @@
-from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.ensemble import RandomForestRegressor
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 
@@ -9,5 +9,5 @@ def build_model():
     """
     return Pipeline([
         ("scaler", StandardScaler()),
-        ("model", GradientBoostingRegressor(n_estimators=200, learning_rate=0.05, random_state=42))
+        ("model", RandomForestRegressor(n_estimators=300, max_depth=4, min_samples_leaf=10, random_state=42, n_jobs=-1))
     ])

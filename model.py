@@ -1,4 +1,4 @@
-from sklearn.ensemble import ExtraTreesRegressor
+from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.pipeline import Pipeline
 
 def build_model():
@@ -7,11 +7,11 @@ def build_model():
     Try GradientBoosting, different depths, or feature engineering.
     """
     return Pipeline([
-        ("model", ExtraTreesRegressor(
-            n_estimators=600,
+        ("model", GradientBoostingRegressor(
+            n_estimators=150,
+            learning_rate=0.03,
             max_depth=2,
             min_samples_leaf=100,
             random_state=42,
-            n_jobs=-1,
         ))
     ])

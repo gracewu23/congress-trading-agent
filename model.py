@@ -1,5 +1,6 @@
-from sklearn.ensemble import HistGradientBoostingRegressor
+from sklearn.linear_model import BayesianRidge
 from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
 
 def build_model():
     """
@@ -7,11 +8,6 @@ def build_model():
     Try GradientBoosting, different depths, or feature engineering.
     """
     return Pipeline([
-        ("model", HistGradientBoostingRegressor(
-            max_iter=200,
-            learning_rate=0.03,
-            max_leaf_nodes=8,
-            l2_regularization=0.1,
-            random_state=42,
-        ))
+        ("scaler", StandardScaler()),
+        ("model", BayesianRidge())
     ])

@@ -9,5 +9,5 @@ def build_model():
     """
     return Pipeline([
         ("scaler", StandardScaler()),
-        ("model", Ridge(alpha=100.0))
+        ("model", Ridge(alpha=1000.0))
     ])

@@ -1,6 +1,5 @@
-from sklearn.linear_model import Ridge
+from sklearn.ensemble import RandomForestRegressor
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler
 
 def build_model():
     """
@@ -8,6 +7,11 @@ def build_model():
     Try GradientBoosting, different depths, or feature engineering.
     """
     return Pipeline([
-        ("scaler", StandardScaler()),
-        ("model", Ridge(alpha=10000.0))
+        ("model", RandomForestRegressor(
+            n_estimators=400,
+            max_depth=2,
+            min_samples_leaf=100,
+            random_state=42,
+            n_jobs=-1,
+        ))
     ])

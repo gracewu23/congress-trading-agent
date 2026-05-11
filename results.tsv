@@ -1,0 +1,17 @@
+experiment	alpha	ir	status	description
+exp	0.023101	7.988850	baseline	Baseline: ElasticNet
+exp	0.023152	6.773093	discard	Ridge alpha 1.0
+exp	0.023019	0.000000	discard	ElasticNet alpha 0.01
+exp	0.023086	9.795993	keep	ElasticNet alpha 0.002
+exp	0.023071	12.660863	keep	ElasticNet alpha 0.003
+exp	0.023056	17.896299	keep	ElasticNet alpha 0.004
+exp	0.023040	30.521032	keep	ElasticNet alpha 0.005
+exp	0.023025	103.691291	keep	ElasticNet alpha 0.006
+exp	0.023019	0.000000	discard	ElasticNet alpha 0.007
+exp	0.023025	103.691291	baseline	Rerun Baseline: ElasticNet alpha 0.006
+exp	0.023413	4.185249	discard	RandomForest shallow leaves
+exp	0.023994	3.103327	discard	HistGradientBoosting shallow
+exp	0.023362	6.332033	discard	GradientBoosting stumps
+exp	0.023319	7.440928	discard	ExtraTrees conservative leaves
+exp	0.025145	1.968524	discard	SVR rbf conservative
+exp	0.023025	103.691291	discard	Polynomial interactions ElasticNet

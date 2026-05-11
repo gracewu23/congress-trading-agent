@@ -5,9 +5,9 @@ from sklearn.preprocessing import StandardScaler
 def build_model():
     """
     AI Agent: Modify this pipeline to improve Information Ratio (IR).
-    Experiment: ElasticNet with slightly stronger regularization.
+    Experiment: ElasticNet with stronger regularization.
     """
     return Pipeline([
         ("scaler", StandardScaler()),
-        ("model", ElasticNet(alpha=0.002, l1_ratio=0.5, max_iter=10000))
+        ("model", ElasticNet(alpha=0.003, l1_ratio=0.5, max_iter=10000))
     ])

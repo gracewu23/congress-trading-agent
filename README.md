@@ -10,10 +10,9 @@ Data has shown that Congress members frequently outperform the stock market. In 
 - Historical adjusted closing prices and S&P 500 (SPY) benchmarks were sourced via yfinance
 
 ## Success Criteria
-- **Alpha:** > 5% annualized outperformance.
-- **Sharpe Ratio:** > 1.0.
+- **Information Ratio (IR)** > 0.5
 
-The project would be considered successful if the optimized strategy produces a backtested portfolio return that exceeds the S&P 500 annualized return by at least 5% while maintaining a superior Sharpe Ratio compared to the baseline model.
+The project is considered successful if the optimized strategy produces an Information Ratio that significantly exceeds the baseline model. By focusing exclusively on IR, the model is forced to maximize Alpha (outperformance) while simultaneously minimizing Tracking Error (volatility relative to the S&P 500).
 
 ## Project Structure
 - `prepare.py`: FROZEN — data loading, evaluation metric, plotting
@@ -32,19 +31,19 @@ I have initialized an AutoResearch project for Congressional trade analysis.
 
 1. Read program.md to understand the financial objectives and constraints.
 2. Read model.py to see the current model architecture.
-3. Establish the baseline: Run `python run.py "Baseline: Ridge Regression" --baseline`. Note the Alpha and Sharpe Ratio.
+3. Establish the baseline: Run python run.py "Baseline: ElasticNet" --baseline. Note the Information Ratio (IR).
 
 Now, enter the AutoResearch loop for at least 6 iterations:
 
-1. PROPOSE one modification to model.py (e.g., try RandomForest, HistGradientBoosting, or change hyperparameters like max_depth or n_estimators).
+1. PROPOSE one modification to model.py (e.g., try RandomForestRegressor, HistGradientBoostingRegressor, or add PolynomialFeatures to capture committee/party interactions).
 2. EDIT model.py with your proposed change.
-3. RUN the experiment: `python run.py "<short description of your change>"`.
-4. EVALUATE the result:
-   - If Alpha OR Sharpe Ratio improved compared to the current best: KEEP the change and commit model.py. Note the iteration in the summary table and mark as KEEP.
-   - If both metrics worsened or stayed flat: REVERT model.py to the previous best version. Still note the iteration in the summary table but mark as DISCARD.
+3. RUN the experiment: python run.py "<short description of your change>".
+4. EVALUATE the result based on the Information Ratio (IR):
+   - If IR improved compared to the current best: KEEP the change and commit model.py. Mark as KEEP in the summary table.
+   - If IR worsened or stayed flat: REVERT model.py to the previous best version. Mark as DISCARD in the summary table.
 5. REPEAT until you have completed at least 6 unique experiments.
 
-After all iterations, print a summary table of every experiment, the Alpha/Sharpe results, and whether you KEPT or DISCARDED the change.
+After all iterations, print a summary table of every experiment, the IR results, and whether you KEPT or DISCARDED the change.
 
 ## Plotting Results
 After running experiments:
@@ -55,6 +54,6 @@ python prepare.py
 ```
 
 This produces a two-panel chart:
-- **Top (Alpha Progression)**: Tracks the annualized Alpha per iteration (green=keep, red=discard, blue=baseline)
-- **Bottom (Sharpe Ratio)**: Visualizes the risk-adjusted consistency of your strategy
-- **Green line**: Best-so-far envelope
+- **Top (Alpha Progression)**: Tracks the raw annualized Alpha per iteration for context.
+- **Bottom (Information Ratio)**: The primary success metric tracking your strategy's consistency relative to the S&P 500.
+- **Blue line**: Shows the "Best-so-far" envelope for the Information Ratio.

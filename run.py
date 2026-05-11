@@ -10,10 +10,8 @@ def main():
     if "--baseline" in args: status = "baseline"
     if "--discard" in args: status = "discard"
 
-    # 1. Load Data
     X_train, y_train, X_val, y_val, _ = load_data()
 
-    # 2. Build and Train
     from model import build_model
     model = build_model()
     
@@ -21,11 +19,11 @@ def main():
     model.fit(X_train, y_train)
     duration = time.time() - t0
 
-    # 3. Evaluate
-    alpha, sharpe = evaluate(model, X_val, y_val)
+    alpha, ir = evaluate(model, X_val, y_val)
     
-    print(f"Result: Alpha={alpha:.2%}, Sharpe={sharpe:.2f}, Time={duration:.2f}s")
-    log_result("exp", alpha, sharpe, status, desc)
+    print(f"\n>>> Experiment: {desc}")
+    print(f"Result: Alpha={alpha:.2%}, IR={ir:.4f}, Time={duration:.2f}s")
+    log_result("exp", alpha, ir, status, desc)
 
 if __name__ == "__main__":
     main()

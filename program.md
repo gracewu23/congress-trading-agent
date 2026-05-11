@@ -1,17 +1,18 @@
 # AutoResearch Agent Instructions
 
 ## Objective
-Maximize **Alpha** (outperformance vs. S&P 500) using Congressional trade data.
+Maximize the **Information Ratio (IR)** of Congressional trades.
 
 ## Success Criteria
-1. Annualized Alpha > 5%.
-2. Sharpe Ratio > 1.0.
+1. **IR** is the primary metric.
+2. **KEEP** if `Current_IR > Previous_Best_IR`.
+3. **DISCARD** and revert `model.py` if `Current_IR <= Previous_Best_IR`.
 
 ## Rules
 - You may ONLY modify `model.py`, `results.tsv`, and `performance.png`
 - `prepare.py` and `run.py` are FROZEN — do not touch them
 - After completing the iterations, update `results.tsv` and `performance.png` with the results
-- Do not use future data; the `target_alpha` is calculated using disclosure-date entry
+- Do not use future data, refer to disclosure-date entry
 - Strategies must generalize across different parties and committees
 - Training and evaluation must complete in under 60 seconds on CPU
 - No additional data sources or external downloads
@@ -23,7 +24,7 @@ Maximize **Alpha** (outperformance vs. S&P 500) using Congressional trade data.
 2. Propose a modification
 3. Edit model.py
 4. Run: python run.py "description of change"
-5. Check Alpha and Sharpe in output
+5. Check Information Ratio in output
 6. If improved: git add model.py && git commit -m "feat: <description>"
 7. If worse: git checkout model.py (revert)
 8. Repeat from step 1

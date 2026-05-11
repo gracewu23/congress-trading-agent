@@ -4,8 +4,8 @@ from sklearn.preprocessing import StandardScaler
 
 def build_model():
     """
-    AI Agent: Modify this pipeline to improve Alpha.
-    Try GradientBoosting, different depths, or feature engineering.
+    AI Agent: Modify this pipeline to improve Information Ratio (IR).
+    Current Baseline: ElasticNet
     """
     return Pipeline([
         ("scaler", StandardScaler()),
